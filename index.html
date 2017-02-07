@@ -14,22 +14,27 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- endinject -->
 </head>
-<body>
+<body data-ng-app="app">
 
-  <div class="container">
+  <div class="container" ng-controller="PetController">
   	<div class="row">
 	  	<div class="col-md-8 col-md-offset-2">
 	  		<h1>Make a claim</h1>
-	  		<br />
-	  		<p>Make a claim for your pet</p>
+	  		
+	  			<label class="lead pull-left">Make a claim for your pet</label>
+		  	
+		  	<div class="col-md-6">
+		  		<select class="form-control col-md-2" ng-model="petList" ng-options="pet.petName for pet in pets"></select>
+		  	</div>
 	  	</div>
   	</div>
   </div>
 
   <!-- inject:js -->
-  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
+  <script src="/src/scripts/app.js"></script>
   <!-- endinject -->
 </body>
 </html>
