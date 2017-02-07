@@ -8,6 +8,7 @@ var imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
+var inject = require('gulp-inject');
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -20,6 +21,16 @@ gulp.task('browser-sync', function() {
 gulp.task('bs-reload', function () {
   browserSync.reload();
 });
+
+gulp.task('inject-scripts', function () {
+
+  var target = gulp.src('./index.html');
+  var sources = gulp.src(['./bower_components/bootstrap/dist/js/bootstrap.js', './bower_components/jquery/dist/jquery.js','./bower_components/angular/angular.js', './bower_components/**/*.css'], {read: false});
+ 
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./'));
+
+})
 
 gulp.task('images', function(){
   gulp.src('src/images/**/*')
@@ -55,7 +66,7 @@ gulp.task('scripts', function(){
     .pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('default', ['browser-sync'], function(){
+gulp.task('default', ['browser-sync', 'inject-scripts'], function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
   gulp.watch("src/scripts/**/*.js", ['scripts']);
   gulp.watch("*.html", ['bs-reload']);
