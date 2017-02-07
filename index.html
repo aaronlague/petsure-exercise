@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/styles/screen.css">
   <!-- endinject -->
 </head>
 <body data-ng-app="app">
@@ -19,13 +20,27 @@
   <div class="container" ng-controller="PetController">
   	<div class="row">
 	  	<div class="col-md-8 col-md-offset-2">
-	  		<h1>Make a claim</h1>
-	  		
-	  			<label class="lead pull-left">Make a claim for your pet</label>
-		  	
-		  	<div class="col-md-6">
-		  		<select class="form-control col-md-2" ng-model="petList" ng-options="pet.petName for pet in pets"></select>
-		  	</div>
+	  		<form class="form-horizontal">
+	  			<h1>Make a claim</h1>
+	  			<div class="form-group">
+		  			<label class="col-md-5 lead">Make a claim for your pet</label>
+		  			<div class="col-md-5">
+		  				<select class="form-control col-md-4" ng-model="petList" ng-change="displayPet(petList)" ng-options="pet.petName for pet in pets"></select>
+		  			</div>
+		  		</div>
+		  		<p >Attach {{petName}} invoice for us here</p>
+		  		<div class="form-group">
+				  <div class="col-md-10 border">
+				    <input id="filebutton" name="filebutton" class="input-file" type="file">
+				  </div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-8">
+					    <button id="" name="" class="btn btn-primary btn-md">Submit</button>
+					    <a href="" class="link">or save for later</a>
+					</div>
+				</div>
+	  		</form>
 	  	</div>
   	</div>
   </div>
