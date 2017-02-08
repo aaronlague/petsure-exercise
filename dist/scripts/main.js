@@ -25,7 +25,7 @@ $scope.$watch('file', function () {
 
 $scope.alertData = function(){
 	var fileSubmitted = $scope.files = [$scope.file.name];
-	var petSubmitted = $scope.petName = [$scope.petName]
+	var petSubmitted = $scope.petName
 	alert('Thank you for submitting ' + fileSubmitted + ' for ' + petSubmitted);
 }
 
