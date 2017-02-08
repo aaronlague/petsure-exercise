@@ -25,7 +25,7 @@ gulp.task('bs-reload', function () {
 gulp.task('inject-scripts', function () {
 
   var target = gulp.src('./index.html');
-  var sources = gulp.src(['./bower_components/jquery/dist/jquery.js', './bower_components/bootstrap/dist/js/bootstrap.js','./bower_components/angular/angular.js', './src/scripts/app.js', './bower_components/**/*.css', './dist/styles/*.css'], {read: false});
+  var sources = gulp.src(['./bower_components/jquery/dist/jquery.js', './bower_components/bootstrap/dist/js/bootstrap.js', './bower_components/angular/angular.js', './bower_components/ng-file-upload/ng-file-upload.js' ,'./src/scripts/app.js', './bower_components/**/*.css', './dist/styles/*.css'], {read: false});
  
   return target.pipe(inject(sources))
     .pipe(gulp.dest('./'));

@@ -30,13 +30,19 @@
 		  		</div>
 		  		<p >Attach {{petName}} invoice for us here</p>
 		  		<div class="form-group">
-				  <div class="col-md-10 border">
-				    <input id="filebutton" name="filebutton" class="input-file" type="file">
+				  <div class="col-md-10 border drop-box">
+
+					  <div class="button" ngf-select ngf-drop ng-model="file" ngf-multiple="false" ngf-pattern="'image/*,application/pdf'">Drag and drop invoice here
+							<ul>
+							  <li ng-repeat="x in files">{{x.name}} {{x.$error}} {{x.$errorParam}}</li>
+							</ul>
+					  </div>
+
 				  </div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-8">
-					    <button id="" name="" class="btn btn-primary btn-md">Submit</button>
+					    <button ng-click="alertData()" class="btn btn-primary btn-md">Submit</button>
 					    <a href="" class="link">or save for later</a>
 					</div>
 				</div>
@@ -49,6 +55,7 @@
   <script src="/bower_components/jquery/dist/jquery.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
   <script src="/src/scripts/app.js"></script>
   <!-- endinject -->
 </body>
